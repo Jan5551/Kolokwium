@@ -42,8 +42,12 @@
     </style> 
    </head>
  <body>
-    <div id="app">
-     <div class="figura" v-for="p in rows">
+    <div id="app" tabindex="0" keydown >
+      <!-- propozycja @keyup.down="active=[p+1,q]" 
+            @keyup.up="active=[p-1,q]"
+            @keyup.left="active=[p,q-1]
+            @keyup.right="active=[p,q+1] -->
+  <div class="figura" v-for="p in rows">
        <div class="cell" v-for="q in columns" v-on:click="changeActive(p, q)" :class="[active == '1,1' && q == p == 1 ? 'active' : 'cell']">
           <p>{{p}},{{q}}</p>
         </div>
@@ -56,9 +60,9 @@
         el: '#app',
         data: {
             message: 'Powodzenia'
-            rows: 10,
-            columns: 10
-            active: '1,1'
+            rows: 7,
+            columns: 15,
+            active: '1,1',
             tabindex: 0
         },
    
