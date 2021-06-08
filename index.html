@@ -26,19 +26,30 @@
         flex-direction: row;
     }
     
+    .active 
+    {
+            background: red;
+            color: white;
+     }
+    
+    .cell p
+    {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } 
+    
     </style> 
    </head>
-<body>
+ <body>
     <div id="app">
      <div class="figura" v-for="p in rows">
-            <div v-for="q in columns">
-       <div class="cell">
-      {{ p}},{{ q }}
-      <div id="srodek">1</div>
-     </div>
-        
-        {{ message }}
-    </div>
+       <div class="cell" cv-for="q in columns" v-on:click="changeActive(i, j)" :class="[active == '1,1' && j == i == 1 ? 'cell active' : 'cell']">
+          <p>{{p}},{{q}}</p>
+        </div>
+	 </div>
+	</div>
+
 
     <script>
     var app = new Vue({
@@ -47,7 +58,7 @@
             message: 'Powodzenia'
             rows: 10,
             columns: 10
-        
+            active: '1,1'
         
         }
     })
