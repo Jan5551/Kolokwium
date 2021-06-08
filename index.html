@@ -44,7 +44,7 @@
  <body>
     <div id="app">
      <div class="figura" v-for="p in rows">
-       <div class="cell" cv-for="q in columns" v-on:click="changeActive(i, j)" :class="[active == '1,1' && j == i == 1 ? 'cell active' : 'cell']">
+       <div class="cell" cv-for="q in columns" v-on:click="changeActive(p, q)" :class="[active == '1,1' && q == p == 1 ? 'active' : 'cell']">
           <p>{{p}},{{q}}</p>
         </div>
 	 </div>
@@ -60,8 +60,22 @@
             columns: 10
             active: '1,1'
         
-        }
+        },
+   
+       methods: {
+
+            changeActive: function(p, q){
+                this.active = (p + "," + q);
+            }
+
+
+        },
     })
-    </script>
+
+    
+    
+    
+    
+	 </script>
 </body>
 </html>
