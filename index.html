@@ -20,13 +20,20 @@
     
     }
     
-    
+    .figura
+    {
+        display: flex;
+        flex-direction: row;
+    }
     
     </style> 
    </head>
 <body>
     <div id="app">
-     <div class="cell">
+     <div class="figura" v-for="p in rows">
+            <div v-for="q in columns">
+       <div class="cell">
+      {{ p}},{{ q }}
       <div id="srodek">1</div>
      </div>
         
@@ -38,6 +45,10 @@
         el: '#app',
         data: {
             message: 'Powodzenia'
+            rows: 10,
+            columns: 10
+        
+        
         }
     })
     </script>
